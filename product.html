@@ -22,6 +22,9 @@
         --border: rgba(255, 255, 255, 0.1);
         --text: #f8fafc;
         --text-dim: #94a3b8;
+
+        /* default product grid columns */
+        --product-cols: 3;
       }
 
       * {
@@ -170,7 +173,7 @@
       /* ---------- PRODUCT GRID ---------- */
       .product-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(var(--product-cols), 1fr);
         gap: 30px;
         padding-bottom: 100px;
       }
@@ -485,7 +488,18 @@
 
     <script>
       function toggleSidebar() {
-        document.querySelector(".sidebar").classList.toggle("open");
+        const sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("open");
+
+        const productGrid = document.getElementById("main-product-grid");
+        if(window.innerWidth <= 900){
+          // reversed logic
+          if(sidebar.classList.contains("open")){
+            productGrid.style.setProperty('--product-cols', 3);
+          }else{
+            productGrid.style.setProperty('--product-cols', 2);
+          }
+        }
       }
 
       const products = [];
@@ -549,6 +563,21 @@
       }
 
       render();
+
+      // Set initial grid columns on mobile load
+      window.addEventListener('resize', () => {
+        const sidebar = document.querySelector(".sidebar");
+        const productGrid = document.getElementById("main-product-grid");
+        if(window.innerWidth <= 900){
+          if(sidebar.classList.contains("open")){
+            productGrid.style.setProperty('--product-cols', 3);
+          }else{
+            productGrid.style.setProperty('--product-cols', 2);
+          }
+        } else {
+          productGrid.style.setProperty('--product-cols', 3);
+        }
+      });
     </script>
   </body>
 </html>
