@@ -204,10 +204,7 @@
       }
 
       .price-text {
-        font-size: 28px;
-        font-weight: 800;
-        color: var(--accent);
-        margin-bottom: 15px;
+        display: none; /* hide prices in marketplace */
       }
 
       .buy-now-btn {
@@ -241,7 +238,52 @@
         display: none !important;
       }
 
-      /* ---------- MOBILE ---------- */
+      /* ---------- CHECKOUT INPUTS ---------- */
+      .checkout-input {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.05);
+        color: var(--text);
+        font-size: 16px;
+      }
+
+      .checkout-input:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+
+      /* ---------- CONTACT WIDGET ---------- */
+      .contact-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 2000;
+      }
+
+      .contact-widget a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.3s;
+      }
+
+      .contact-widget a:hover {
+        transform: scale(1.1);
+      }
+
       @media (max-width: 900px) {
         .hamburger {
           display: block;
@@ -321,7 +363,7 @@
               line-height: 1.6;
             "
           >
-            Led by <b>Engr. Adegboye Desmond</b> and
+            Led by <b>Engr. Aegboye Desmond</b> and
             <b>Adegboye Olusola</b>. We deliver world-class OIL AND GAS
             PRODUCTS and power systems optimized for the tropical climate.
           </p>
@@ -396,34 +438,50 @@
             background: var(--glass);
             padding: 40px;
             border-radius: 30px;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
           "
         >
-          <h2 style="margin-top: 0">Complete Procurement</h2>
+          <h2 style="margin-top: 0; color: var(--accent); font-size: 28px;">
+            Complete Procurement
+          </h2>
 
-          <input id="uName" placeholder="Full Name" />
-          <input id="uPhone" placeholder="Phone Number" />
-          <input id="uEmail" placeholder="Email Address" />
-          <textarea id="uAddr" placeholder="Delivery Address"></textarea>
+          <input id="uName" placeholder="Full Name" class="checkout-input"/>
+          <input id="uPhone" placeholder="Phone Number" class="checkout-input"/>
+          <input id="uEmail" placeholder="Email Address" class="checkout-input"/>
+          <textarea id="uAddr" placeholder="Delivery Address" class="checkout-input"></textarea>
 
+          <!-- Order summary -->
           <div
-            id="total"
             style="
-              font-size: 32px;
-              font-weight: 800;
-              color: var(--accent);
-              margin-bottom: 20px;
+              background: rgba(255,255,255,0.05);
+              padding: 20px;
+              border-radius: 15px;
+              border: 1px solid var(--border);
             "
           >
-            Total: ₦0
+            <h3 style="margin-top:0; color: var(--accent);">Order Summary</h3>
+            <ul id="orderList" style="list-style:none; padding-left:0; margin:0;"></ul>
+            <div id="total" style="font-size: 28px; font-weight: 800; color: var(--accent); text-align:right; margin-top:10px;">
+              Total: ₦0
+            </div>
           </div>
 
-          <button class="buy-now-btn" onclick="pay()">Pay Here</button>
+          <button class="buy-now-btn" onclick="pay()">Proceed to Payment</button>
         </div>
       </section>
     </main>
+
+    <!-- CONTACT WIDGET -->
+    <div class="contact-widget">
+      <a href="https://wa.me/2347032386595" target="_blank" title="WhatsApp">W</a>
+      <a href="https://t.me/07032386595" target="_blank" title="Telegram">T</a>
+      <a href="tel:+2347032386595" title="Call">📞</a>
+    </div>
 
     <script>
       function toggleSidebar() {
@@ -434,9 +492,9 @@
       for (let i = 1; i <= 30; i++) {
         products.push({
           id: i,
-          name: `Axton V-Series Pro ${i}`,
+          name: `Engine Oi ${i}`,
           price: 150000 + i * 11000,
-          img: `images/hvac${i}.jpg`,
+          img: `images/oil${i}.jpg`,
         });
       }
 
@@ -480,10 +538,17 @@
         if (btn) btn.classList.add("active");
 
         if (v === "market") render();
+        if (v === "checkout") updateCheckout();
+      }
+
+      function updateCheckout() {
+        const list = document.getElementById("orderList");
+        list.innerHTML = cart.map((p) => `<li>${p.name}</li>`).join("");
+        const total = cart.reduce((sum, p) => sum + p.price, 0);
+        document.getElementById("total").innerText = "Total: ₦" + total.toLocaleString();
       }
 
       render();
     </script>
   </body>
 </html>
-
