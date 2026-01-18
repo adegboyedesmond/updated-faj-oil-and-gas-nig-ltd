@@ -69,6 +69,21 @@
       background: #e6b800;
     }
 
+    
+  #whatsapp-button{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:9999;
+  }
+  #whatsapp-button img{
+    width:60px;          /* size of bubble */
+    height:auto;
+    border-radius:50%;
+    box-shadow:0 4px 8px rgba(0,0,0,.3);
+  }
+
+
     .success-msg {
       text-align: center;
       color: green;
@@ -101,7 +116,13 @@
   </form>
   <div class="success-msg" id="successMsg">Message sent successfully!</div>
 </div>
-
+<!-- WhatsApp floating button -->
+<div id="whatsapp-button">
+  <a href="https://api.whatsapp.com/send?phone=12345678901&text=Hello!" 
+     target="_blank" rel="noopener">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp"/>
+  </a>
+</div>
 <script>
   // Initialize EmailJS with your public key
   emailjs.init("UWzIUA0mKoJi9Y7-B"); // <-- Replace with your EmailJS User ID
