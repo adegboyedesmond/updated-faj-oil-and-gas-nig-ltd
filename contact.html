@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us – Faj Oil Nigeria Ltd</title>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     body {
       font-family: "Inter", sans-serif;
@@ -99,7 +98,12 @@
 
 <div class="contact-container">
   <h2>Send Us a Message</h2>
-  <form id="contactForm">
+  <form id="contactForm" action="https://formsubmit.co/ajax/fajdirectorone@fajoilnigerialtd.com" method="POST">
+    <!-- Prevents spam -->
+    <input type="text" name="_honey" style="display:none">
+    <!-- Disables captcha -->
+    <input type="hidden" name="_captcha" value="false">
+    
     <label for="name">Full Name</label>
     <input type="text" id="name" name="name" required />
 
@@ -118,39 +122,39 @@
 </div>
 <!-- WhatsApp floating button -->
 <div id="whatsapp-button">
-  <a href="https://api.whatsapp.com/send?phone=+2347072748455&text=Hello! How can we help you chat live with faj oil nigeria ltd" 
+  <a href="https://api.whatsapp.com/send?phone=+2347072748455&text=Hello ! How can we help you chat live with faj oil nigeria ltd" 
      target="_blank" rel="noopener">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp"/>
   </a>
 </div>
 <script>
-  // Initialize EmailJS with your public key
-  emailjs.init("UWzIUA0mKoJi9Y7-B"); // <-- Replace with your EmailJS User ID
-
-  // Form submission
+  // Form submission to fajdirectorone@fajoilnigerialtd.com
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('successMsg');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-
-    // Send form using EmailJS
-    emailjs.sendForm('service_otj9kbh', 'template_1k74jxj', this)
-      .then(function() {
-        successMsg.style.display = 'block';
-        form.reset();
-      }, function(error) {
-        alert('Oops! Something went wrong...\n' + JSON.stringify(error));
-      });
+    
+    fetch('https://formsubmit.co/ajax/fajdirectorone@fajoilnigerialtd.com', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: new FormData(form)
+    })
+    .then(response => response.json())
+    .then(data => {
+      successMsg.style.display = 'block';
+      form.reset();
+      setTimeout(() => {
+        successMsg.style.display = 'none';
+      }, 5000);
+    })
+    .catch(error => {
+      alert('Oops! Something went wrong... Please try again.');
+    });
   });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
