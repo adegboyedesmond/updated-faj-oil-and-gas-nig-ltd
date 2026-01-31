@@ -7,23 +7,21 @@
 
     <script src="https://checkout.flutterwave.com/v3.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<!-- FAJ Oil Sticker-Style Favicon -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-  <defs>
-    <linearGradient id='grad' x1='0' y1='0' x2='1' y2='1'>
-      <stop offset='0%' stop-color='%23fbbf24'/>
-      <stop offset='100%' stop-color='%23b45309'/>
-    </linearGradient>
-  </defs>
-  <circle cx='50' cy='50' r='48' fill='url(%23grad)' stroke='%23061f3d' stroke-width='4'/>
-  <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='38' font-family='Arial, sans-serif' fill='%23fff' font-weight='bold'>FAJ</text>
-  <text x='50%' y='78%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-family='Arial, sans-serif' fill='%23fff'>🛢️</text>
-</svg>">
+    
+    <!-- FAJ Oil Sticker-Style Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <defs>
+        <linearGradient id='grad' x1='0' y1='0' x2='1' y2='1'>
+          <stop offset='0%' stop-color='%23fbbf24'/>
+          <stop offset='100%' stop-color='%23b45309'/>
+        </linearGradient>
+      </defs>
+      <circle cx='50' cy='50' r='48' fill='url(%23grad)' stroke='%23061f3d' stroke-width='4'/>
+      <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='38' font-family='Arial, sans-serif' fill='%23fff' font-weight='bold'>FAJ</text>
+      <text x='50%' y='78%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-family='Arial, sans-serif' fill='%23fff'>🛢️</text>
+    </svg>">
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;600;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;600;800&display=swap" rel="stylesheet" />
 
     <style>
       :root {
@@ -190,27 +188,101 @@
 
       .img-box { width: 100%; height: 180px; background: #000; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
       .img-box img { width: 100%; height: 100%; object-fit: cover; }
-      .price-text { display: none; }
+      
+      .price-text { 
+        font-size: 22px; 
+        font-weight: 800; 
+        color: var(--accent); 
+        margin-bottom: 15px;
+        display: block;
+      }
 
-      .buy-now-btn { width: 100%; background: var(--accent); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 12px; margin-bottom: 8px; }
-      .add-cart-btn { width: 100%; background: transparent; color: var(--text); border: 1px solid var(--accent); padding: 10px; border-radius: 12px; font-weight: 600; cursor: pointer; text-transform: uppercase; font-size: 10px; }
+      .buy-now-btn { 
+        width: 100%; 
+        background: var(--accent); 
+        color: white; 
+        border: none; 
+        padding: 14px; 
+        border-radius: 12px; 
+        font-weight: 700; 
+        cursor: pointer; 
+        text-transform: uppercase; 
+        font-size: 12px; 
+        margin-bottom: 8px; 
+        transition: all 0.3s;
+      }
+      .buy-now-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+      }
+      
+      .add-cart-btn { 
+        width: 100%; 
+        background: transparent; 
+        color: var(--text); 
+        border: 1px solid var(--accent); 
+        padding: 10px; 
+        border-radius: 12px; 
+        font-weight: 600; 
+        cursor: pointer; 
+        text-transform: uppercase; 
+        font-size: 10px; 
+      }
+      .add-cart-btn:hover { 
+        background: rgba(14, 165, 233, 0.1); 
+      }
 
       .hidden { display: none !important; }
 
       /* CHECKOUT INPUTS */
-      .checkout-input { width: 100%; padding: 12px 15px; border-radius: 10px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); font-size: 14px; }
+      .checkout-input { 
+        width: 100%; 
+        padding: 12px 15px; 
+        border-radius: 10px; 
+        border: 1px solid var(--border); 
+        background: rgba(255,255,255,0.05); 
+        color: var(--text); 
+        font-size: 14px; 
+        font-family: inherit;
+      }
       .checkout-input:focus { outline: none; border-color: var(--accent); }
 
       /* CONTACT WIDGET */
-      .contact-widget { position: fixed; bottom: 15px; right: 15px; display: flex; flex-direction: column; gap: 8px; z-index: 2000; }
-      .contact-widget a { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: #fff; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.3s; }
-      .contact-widget a:hover { transform: scale(1.1); }
+      .contact-widget { 
+        position: fixed; 
+        bottom: 15px; 
+        right: 15px; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 8px; 
+        z-index: 2000; 
+      }
+      .contact-widget a { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        width: 50px; 
+        height: 50px; 
+        border-radius: 50%; 
+        background: var(--accent); 
+        color: #fff; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 16px; 
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+      }
+      .contact-widget a:hover { 
+        transform: scale(1.1); 
+        background: var(--text);
+        color: var(--accent);
+      }
 
       @media (max-width: 900px) {
         .hamburger { display: block; }
-        .sidebar { position: fixed; left: -300px; top: 0; height: 100%; }
+        .sidebar { position: fixed; left: -300px; top: 0; height: 100%; transition: left 0.3s; }
         .sidebar.open { left: 0; }
-        .content { padding: 20px; }
+        .content { padding: 20px; padding-top: 80px; }
         .hero-title { font-size: 28px; }
         .feature-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
         .product-container { gap: 15px; }
@@ -219,6 +291,7 @@
       @media (max-width: 500px) {
         .feature-grid { grid-template-columns: 1fr; }
         .hero-title { font-size: 22px; }
+        .product-container { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -227,8 +300,8 @@
     <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
     <aside class="sidebar">
-      <h3 style="color: var(--accent); text-align: center">NATURAL GAS AND OIL SOLUTIONS</h3>
-      <div class="nav-item active" onclick="show('home', this)">⬅ Back to Marketplace</div>
+      <h3 style="color: var(--accent); text-align: center; font-size: 24px; margin-bottom: 30px;">NATURAL GAS AND OIL SOLUTIONS</h3>
+      <div class="nav-item active" onclick="show('home', this)">🏠 Home</div>
       <div class="nav-item" onclick="show('market', this)">🛒 Available Products</div>
       <div class="nav-item" onclick="show('checkout', this)">💳 Checkout (<span id="count">0</span>)</div>
 
@@ -241,15 +314,15 @@
     <main class="content">
       <section id="view-home">
         <div class="hero-section">
-          <span class="section-label">Premier Engineering Firm</span>
-          <h3 class="hero-title">Industrial <span style="color: var(--accent)">Paradise</span> Solutions.</h3>
+          <span class="section-label">Premier Oil & Gas Firm</span>
+          <h3 class="hero-title">Industrial <span style="color: var(--accent)">Energy</span> Solutions.</h3>
           <p style="font-size: 18px; color: var(--text-dim); margin-top: 20px; max-width: 600px; line-height: 1.5;">
-            Led by <b>FAJ OIL NIGERIA LIMITED TEAM</b>. We deliver world-class OIL AND GAS PRODUCTS and power systems optimized for the tropical climate.
+            Led by <b>FAJ OIL NIGERIA LIMITED TEAM</b>. We deliver world-class petroleum products, oil tools, and power systems optimized for industrial operations.
           </p>
 
           <div class="stats-bar">
-            <div class="stat-item"><h4>500+</h4><p>Projects</p></div>
-            <div class="stat-item"><h4>100%</h4><p>Reliability</p></div>
+            <div class="stat-item"><h4>500+</h4><p>Deliveries</p></div>
+            <div class="stat-item"><h4>100%</h4><p>Quality</p></div>
             <div class="stat-item"><h4>24/7</h4><p>Support</p></div>
           </div>
 
@@ -258,9 +331,18 @@
 
         <span class="section-label">Our Specialized Expertise</span>
         <div class="feature-grid">
-          <div class="feature-card"><h3>Tropicalized System</h3><p>Maximum operational efficiency and reliability even in extreme high-temperature conditions.</p></div>
-          <div class="feature-card"><h3>Grid-Independent</h3><p>Smart Shield technology protects your investment against power surges.</p></div>
-          <div class="feature-card"><h3>Gold-Standard Build</h3><p>Advanced copper-gold alloy components for superior corrosion resistance and long-term reliability.</p></div>
+          <div class="feature-card">
+            <h3>Premium Petroleum</h3>
+            <p>Maximum operational efficiency and reliability even in extreme high-temperature industrial conditions.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Global Logistics</h3>
+            <p>Smart supply chain technology ensuring safe delivery of oil products and tools worldwide.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Gold-Standard Tools</h3>
+            <p>Advanced copper-gold alloy components for superior corrosion resistance and long-term reliability.</p>
+          </div>
         </div>
       </section>
 
@@ -276,15 +358,15 @@
           <input id="uName" placeholder="Full Name" class="checkout-input"/>
           <input id="uPhone" placeholder="Phone Number" class="checkout-input"/>
           <input id="uEmail" placeholder="Email Address" class="checkout-input"/>
-          <textarea id="uAddr" placeholder="Delivery Address" class="checkout-input"></textarea>
+          <textarea id="uAddr" placeholder="Delivery Address" class="checkout-input" style="min-height: 80px; resize: vertical;"></textarea>
 
           <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid var(--border);">
             <h3 style="margin-top:0; color: var(--accent); font-size: 16px;">Order Summary</h3>
-            <ul id="orderList" style="list-style:none; padding-left:0; margin:0; font-size: 14px;"></ul>
+            <ul id="orderList" style="list-style:none; padding-left:0; margin:0 0 10px 0; font-size: 14px;"></ul>
             <div id="total" style="font-size: 20px; font-weight: 700; color: var(--accent); text-align:right; margin-top:10px;">Total: ₦0</div>
           </div>
 
-          <button class="buy-now-btn" onclick="pay()">Proceed to Payment</button>
+          <button class="buy-now-btn" onclick="pay()" style="margin-top: 10px;">Pay via Flutterwave</button>
         </div>
       </section>
     </main>
@@ -297,18 +379,36 @@
     </div>
 
     <script>
+      // Supabase & Flutterwave Config (from original working code)
+      const SB_URL = "https://sxrbjaumvvgqphpylhyj.supabase.co";
+      const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4cmJqYXVtdnZncXBocHlsaHlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY2NjU0MTIsImV4cCI6MjA4MjI0MTQxMn0.uB-VsxHNpDUsb3EmFZEiB4PJX99i-NIf1aX3hLu825A";
+      const _supabase = supabase.createClient(SB_URL, SB_KEY);
+
       const sidebar = document.querySelector(".sidebar");
       const productGrid = document.getElementById("main-product-grid");
+      
+      // Generate 30 Oil Products
+      const products = [];
+      for (let i = 1; i <= 30; i++) {
+        products.push({ 
+          id: i, 
+          name: `oil${i}`, 
+          price: 150000 + i * 11000, 
+          img: `images/oil${i}.jpg` 
+        });
+      }
+      
+      let cart = [];
 
       function setProductColumns() {
         if(window.innerWidth <= 900){
           if(sidebar.classList.contains("open")){
-            productGrid.style.setProperty('--product-cols', 3);
-          }else{
-            productGrid.style.setProperty('--product-cols', 2);
+            document.documentElement.style.setProperty('--product-cols', 2);
+          } else {
+            document.documentElement.style.setProperty('--product-cols', 2);
           }
         } else {
-          productGrid.style.setProperty('--product-cols', 3);
+          document.documentElement.style.setProperty('--product-cols', 3);
         }
       }
 
@@ -317,18 +417,13 @@
         setProductColumns();
       }
 
-      const products = [];
-      for (let i = 1; i <= 30; i++) {
-        products.push({ id: i, name: `Engine Oi ${i}`, price: 150000 + i*11000, img: `images/oil${i}.jpg` });
-      }
-
-      let cart = [];
-
       function render() {
         productGrid.innerHTML = products.map(p => `
           <div class="product-div">
-            <div class="img-box"><img src="${p.img}"></div>
-            <h3>${p.name}</h3>
+            <div class="img-box">
+              <img src="${p.img}" alt="${p.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22><rect fill=%22%231e293b%22 width=%22100%25%22 height=%22100%25%22/><text fill=%22%2394a3b8%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22>${p.name}</text></svg>'">
+            </div>
+            <h3 style="margin:0 0 10px 0; font-size: 16px;">${p.name}</h3>
             <div class="price-text">₦${p.price.toLocaleString()}</div>
             <button class="buy-now-btn" onclick="buyNow(${p.id})">Buy Now</button>
             <button class="add-cart-btn" onclick="add(${p.id})">Add to Cart</button>
@@ -336,27 +431,92 @@
         `).join("");
       }
 
-      function add(id) { cart.push(products.find(x => x.id === id)); document.getElementById("count").innerText = cart.length; }
-      function buyNow(id) { cart = [products.find(x => x.id === id)]; show("checkout"); }
-      function show(v, btn) {
-        document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
-        document.getElementById("view-"+v).classList.remove("hidden");
-        document.querySelectorAll(".nav-item").forEach(i=>i.classList.remove("active"));
-        if(btn) btn.classList.add("active");
-        if(v==="market") render();
-        if(v==="checkout") updateCheckout();
+      function add(id) { 
+        const item = products.find(x => x.id === id);
+        cart.push(item); 
+        document.getElementById("count").innerText = cart.length; 
+        alert(`${item.name} added to cart!`);
       }
+
+      function buyNow(id) { 
+        cart = [products.find(x => x.id === id)]; 
+        show("checkout"); 
+      }
+
+      function show(v, btn) {
+        document.querySelectorAll("section").forEach(s => s.classList.add("hidden"));
+        document.getElementById("view-" + v).classList.remove("hidden");
+        document.querySelectorAll(".nav-item").forEach(i => i.classList.remove("active"));
+        if(btn) btn.classList.add("active");
+        if(v === "market") render();
+        if(v === "checkout") updateCheckout();
+        if(window.innerWidth <= 900) sidebar.classList.remove("open");
+      }
+
       function updateCheckout() {
         const list = document.getElementById("orderList");
-        list.innerHTML = cart.map(p=>`<li>${p.name}</li>`).join("");
-        const total = cart.reduce((sum,p)=>sum+p.price,0);
-        document.getElementById("total").innerText="Total: ₦"+total.toLocaleString();
+        list.innerHTML = cart.map(p => `<li style="padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+          <span>${p.name}</span>
+          <span style="color: var(--accent); font-weight: 600;">₦${p.price.toLocaleString()}</span>
+        </li>`).join("");
+        const total = cart.reduce((sum, p) => sum + p.price, 0);
+        document.getElementById("total").innerText = "Total: ₦" + total.toLocaleString();
+        document.getElementById("count").innerText = cart.length;
+      }
+
+      async function pay() {
+        const sum = cart.reduce((a, b) => a + b.price, 0);
+        const itemNames = cart.map((item) => item.name).join(", ");
+        const uName = document.getElementById("uName").value;
+        const uPhone = document.getElementById("uPhone").value;
+        const uEmail = document.getElementById("uEmail").value;
+        const uAddr = document.getElementById("uAddr").value;
+
+        if (sum === 0) return alert("Your cart is empty!");
+        if (!uName || !uPhone || !uAddr) return alert("Please fill in delivery details!");
+
+        FlutterwaveCheckout({
+          public_key: "FLWPUBK_TEST-b05d360ef5e6b3ae62e09eb7bfc27fe0-X",
+          tx_ref: "FAJ-" + Date.now(),
+          amount: sum,
+          currency: "NGN",
+          customer: { email: uEmail || "customer@fajoil.com", name: uName, phone_number: uPhone },
+          callback: async function (data) {
+            if (data.status === "successful") {
+              const { error } = await _supabase.from("orders").insert([
+                {
+                  customer_name: uName,
+                  phone: uPhone,
+                  address: uAddr,
+                  email: uEmail,
+                  total_amount: sum,
+                  items: itemNames,
+                  status: "paid",
+                  created_at: new Date().toISOString()
+                },
+              ]);
+              if (error) {
+                console.error("Database Error:", error);
+                alert("Payment successful but database error: " + error.message);
+              } else {
+                alert("Order Successful! Thank you for your purchase.\nItems: " + itemNames);
+                cart = [];
+                document.getElementById("count").innerText = "0";
+                show("home");
+              }
+            }
+          },
+          onclose: function() {
+            // Modal closed without payment
+          }
+        });
       }
 
       window.addEventListener('resize', setProductColumns);
-      window.addEventListener('load', ()=>{ render(); setProductColumns(); });
+      window.addEventListener('load', () => { 
+        render(); 
+        setProductColumns(); 
+      });
     </script>
   </body>
 </html>
-
-
