@@ -5,15 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faj Nig Ltd – Home</title>
   
-  <!-- FAVICON - Shows beside the title in browser tab (INLINE SVG - works immediately) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)' stroke='%2306142d' stroke-width='4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='38' font-family='Arial' fill='%23fff' font-weight='bold'%3EFAJ%3C/text%3E%3Ctext x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-size='20'%3E🛢️%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+ <!-- FAJ Oil Sticker-Style Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg ' viewBox='0 0 100 100'>
+  <defs>
+    <linearGradient id='grad' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='%23fbbf24'/>
+      <stop offset='100%' stop-color='%23b45309'/>
+    </linearGradient>
+  </defs>
+  <circle cx='50' cy='50' r='48' fill='url(%23grad)' stroke='%23061f3d' stroke-width='4'/>
+  <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='38' font-family='Arial, sans-serif' fill='%23fff' font-weight='bold'>FAJ</text>
+  <text x='50%' y='78%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-family='Arial, sans-serif' fill='%23fff'>🛢️</text>
+</svg>">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500 ;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
     /* ===== BASE ===== */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Inter", sans-serif; }
-    body { background: #f3f2ee; color: #1c1c1c; scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+    }
+    body {
+      background: #f3f2ee;
+      color: #1c1c1c;
+      scroll-behavior: smooth;
+    }
 
     /* ===== HEADER ===== */
     header {
@@ -28,9 +49,10 @@
       z-index: 1000;
     }
     .logo {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #06142d;
     }
     .menu-btn {
       font-size: 28px;
@@ -38,19 +60,27 @@
       color: #06142d;
       display: none;
     }
-    .navbar { display: flex; gap: 20px; }
+    .navbar {
+      display: flex;
+      gap: 20px;
+    }
     .navbar a {
       text-decoration: none;
       font-weight: 500;
       color: #1c1c1c;
       transition: 0.3s;
     }
-    .navbar a:hover { color: #f1c40f; }
+    .navbar a:hover {
+      color: #f1c40f;
+    }
 
     /* ===== MOBILE MENU ===== */
     .mobile-overlay {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(2px);
       opacity: 0;
@@ -58,11 +88,15 @@
       transition: 0.3s;
       z-index: 998;
     }
-    .mobile-overlay.show { opacity: 1; visibility: visible; }
+    .mobile-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
 
     .mobile-menu {
       position: fixed;
-      top: 0; right: -100%;
+      top: 0;
+      right: -100%;
       width: 80%;
       max-width: 350px;
       height: 100%;
@@ -73,22 +107,31 @@
       gap: 25px;
       transition: right 0.4s ease;
       z-index: 999;
+      overflow-y: auto;
       border-left: 3px solid #8a6b2d;
       box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
     }
-    .mobile-menu.show { right: 0; }
+    .mobile-menu.show {
+      right: 0;
+    }
     .mobile-menu a {
       color: #fff;
       text-decoration: none;
       font-size: 20px;
       font-weight: 500;
+      cursor: pointer;
     }
-    .mobile-menu a:hover { color: #f1c40f; }
+    .mobile-menu a:hover {
+      color: #f1c40f;
+    }
 
     /* ===== HERO ===== */
     .hero {
-      background: linear-gradient(rgba(6, 20, 45, 0.85), rgba(6, 20, 45, 0.85)),
-        url("https://images.unsplash.com/photo-1581092160562-40aa08e78837");
+      background: linear-gradient(
+          rgba(6, 20, 45, 0.85),
+          rgba(6, 20, 45, 0.85)
+        ),
+        url("https://images.unsplash.com/photo-1581092160562-40aa08e78837 ");
       background-size: cover;
       background-position: center;
       padding: 140px 22px;
@@ -122,7 +165,9 @@
       margin-top: 20px;
       transition: 0.3s;
     }
-    .hero button:hover { background: #e6b800; }
+    .hero button:hover {
+      background: #e6b800;
+    }
 
     /* ===== PRODUCTS ===== */
     .products {
@@ -138,13 +183,17 @@
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
       transition: 0.3s;
     }
-    .product:hover { transform: translateY(-8px); }
+    .product:hover {
+      transform: translateY(-8px);
+    }
     .product img {
       width: 100%;
       height: 230px;
       object-fit: cover;
     }
-    .product div { padding: 28px; }
+    .product div {
+      padding: 28px;
+    }
     .product h3 {
       font-family: "Playfair Display", serif;
       color: #8a6b2d;
@@ -182,7 +231,9 @@
       margin-top: 20px;
       transition: 0.3s;
     }
-    .ad-section button:hover { background: #e6b800; }
+    .ad-section button:hover {
+      background: #e6b800;
+    }
 
     /* ===== FOOTER ===== */
     footer {
@@ -221,29 +272,50 @@
       transform: translateX(-5px);
       opacity: 0.9;
     }
-    .contact-buttons a.whatsapp { background: #25d366; }
-    .contact-buttons a.telegram { background: #0088cc; }
-    .contact-buttons a.facebook { background: #1877F2; }
+    .contact-buttons a.whatsapp {
+      background: #25d366;
+    }
+    .contact-buttons a.telegram {
+      background: #0088cc;
+    }
+    .contact-buttons a.facebook {
+      background: #1877F2;
+    }
     .contact-buttons a.instagram {
       background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .menu-btn { display: block; }
-      .navbar { display: none; }
-      .hero h1 { font-size: 36px; }
-      .hero p { font-size: 16px; }
-      .products { grid-template-columns: 1fr; }
-      .contact-buttons { bottom: 10px; right: 10px; }
-      .contact-buttons a { padding: 10px 16px; font-size: 13px; }
-      .logo { height: 40px; }
+      .menu-btn {
+        display: block;
+      }
+      .navbar {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
+      .products {
+        grid-template-columns: 1fr;
+      }
+      .contact-buttons {
+        bottom: 10px;
+        right: 10px;
+      }
+      .contact-buttons a {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="images/logo.png" alt="Faj Oil And Gas Nigeria Limited" class="logo" />
+    <div class="logo">Faj Oil And Gas Nigeria Limited</div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
     <nav class="navbar">
       <a href="index.html">Home</a>
@@ -288,7 +360,7 @@
       <img src="images/oil2.jpg" alt="Natural Gas" />
       <div>
         <h3>Natural Gas Supply</h3>
-        <p>Clean and efficient gas solutions for industries.</p>
+        <p> 20 Million barrels.</p>
       </div>
     </div>
     
@@ -303,7 +375,7 @@
     <div class="product">
       <img src="images/oil4.jpg" alt="Lubricants" />
       <div>
-        <h3>Petroleum Lubricants</h3>
+        <h3>20 Million barrels</h3>
         <p>High-performance lubricants for heavy machinery.</p>
       </div>
     </div>
@@ -311,8 +383,8 @@
     <div class="product">
       <img src="images/oil5.jpg" alt="Oil Additives" />
       <div>
-        <h3>Oil Additives</h3>
-        <p>Advanced oil additives to improve engine performance and longevity.</p>
+        <h3>FOB VS CIF</h3>
+        <p>20 Million barrels.</p>
       </div>
     </div>
     
@@ -321,6 +393,54 @@
       <div>
         <h3>Diesel & Fuel Oils</h3>
         <p>Premium quality diesel and fuel oils for commercial applications.</p>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="data:image/jpeg;base64,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" alt="Pipeline Transportation" />
+      <div>
+        <h3>petroleum lubricants</h3>
+        <p>Efficient and safe transportation of petroleum products via pipeline networks.</p>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2" alt="Offshore Drilling" />
+      <div>
+        <h3>crude oil</h3>
+        <p>Advanced offshore extraction services for maximum resource recovery.</p>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="images/oil3.jpg"
+        <h3>Storage Solutions</h3>
+        <p>Large-scale storage facilities for crude oil and refined products.</p>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="images/oil2.jpg" alt="Storage Tanks" />
+      <div>80
+        <h3>Storage Solutions</h3>
+        <p>Large-scale storage facilities for crude oil and refined products.</p>
+      </div>
+    </div>
+    
+     <div class="product">
+      <img src="images/oil5.jpg" alt="Storage Tanks" />
+      <div>80
+        <h3>Best premium oil</h3>
+        <p>Large-scale storage facilities for crude oil and refined products.</p>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80" alt="Gas Station" />
+      <div>
+        <h3>Retail Distribution</h3>
+        <p>Countrywide network of fuel stations serving commercial and retail customers.</p>
       </div>
     </div>
   </section>
@@ -341,17 +461,33 @@
 
   <!-- CONTACT BUTTONS - DIRECT CHAT LINKS -->
   <div class="contact-buttons">
-    <a href="https://wa.me/2347072748455?text=Hello%20Faj%20Oil%20Nigeria%20Ltd%2C%20I%20want%20to%20inquire%20about%20your%20products" target="_blank" rel="noopener noreferrer" class="whatsapp">
-       WhatsApp
+    <!-- WhatsApp: Opens chat directly with pre-filled message -->
+    <a href="https://wa.me/2347072748455?text=Hello%20Faj%20Oil%20Nigeria%20Ltd%2C%20I%20want%20to%20inquire%20about%20your%20products " 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp">
+       <i class="fab fa-whatsapp"></i> WhatsApp
     </a>
-    <a href="https://t.me/fajoilnigltd" target="_blank" rel="noopener noreferrer" class="telegram">
-       Telegram
+    
+    <!-- Telegram: Opens direct message -->
+    <a href="https://t.me/fajoilnigltd " 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="telegram">
+       <i class="fab fa-telegram-plane"></i> Telegram
     </a>
-    <a href="https://m.me/Fajoilnigerialtd" target="_blank" class="facebook">
-       Facebook
-    </a>
-    <a href="https://ig.me/m/Fajoilnigerialtd" target="_blank" rel="noopener noreferrer" class="instagram">
-       Instagram
+    
+    <!-- Facebook Messenger: Opens direct chat -->
+ <a href="https://m.me/Fajoilnigerialtd " target="_blank" class="facebook">
+   <i class="fab fa-facebook-messenger"></i> Facebook
+</a>
+    
+    <!-- Instagram: Opens direct DM -->
+    <a href="https://ig.me/m/Fajoilnigerialtd " 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="instagram">
+       <i class="fab fa-instagram"></i> Instagram
     </a>
   </div>
 
